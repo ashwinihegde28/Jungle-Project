@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :about, only: [:index]
 
+
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
@@ -19,7 +20,13 @@ Rails.application.routes.draw do
     resources :categories,  only:[:index, :new, :create]
   end
 
-  
+  # these routes are for showing users a login form, logging them in, and logging them out.
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.
