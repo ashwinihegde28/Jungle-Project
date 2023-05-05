@@ -1,0 +1,13 @@
+<tr>
+  <td>
+     <%= category.name %>
+  </td>
+
+  <td>
+    <ul>
+      <% category.products.each do |product| %>
+        <li><%= product.name %> </li>
+      <% end %>
+    </ul>
+  </td>
+</tr>
